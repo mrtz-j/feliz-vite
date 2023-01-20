@@ -1,0 +1,10 @@
+source https://api.nuget.org/v3/index.json
+
+storage:none
+framework: netstandard2.0
+
+nuget Feliz
+nuget FSharp.Core
+nuget Fable.Browser.Dom
+nuget Fable.Core
+nuget Thoth.Fetch
