@@ -1,6 +1,5 @@
 module App
 
-open Browser.Dom
 open Fetch
 open Thoth.Fetch
 open Feliz
@@ -30,4 +29,6 @@ let App () = React.fragment [ Counter() ]
 
 open Browser.Dom
 
-ReactDOM.render (App(), document.getElementById "root")
+let root = ReactDOM.createRoot (document.getElementById "root")
+
+root.render (App())
