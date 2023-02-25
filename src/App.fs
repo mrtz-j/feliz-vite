@@ -1,12 +1,10 @@
 module App
 
-open Fetch
-open Thoth.Fetch
 open Feliz
 
 [<ReactComponent>]
 let Counter () =
-    let (count, setCount) = React.useState (0)
+    let count, setCount = React.useState 0
 
     Html.div
         [
@@ -19,7 +17,12 @@ let Counter () =
                             prop.onClick (fun _ -> setCount (count + 1))
                             prop.classes [ "btn btn-primary" ]
                         ]
-                    Html.button [ prop.text "Decrement"; prop.onClick (fun _ -> setCount (count - 1)) ]
+                    Html.button
+                        [
+                            prop.text "Decrement"
+                            prop.onClick (fun _ -> setCount (count - 1))
+                            prop.classes [ "btn btn-primary" ]
+                        ]
                 ]
         ]
 

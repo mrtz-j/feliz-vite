@@ -2,10 +2,11 @@
     "private": true,
     "scripts": {
         "postinstall": "dotnet tool restore",
-        "start": "dotnet fable watch src -s --run vite",
+        "start": "dotnet fable watch ./src -s --run vite",
+        "fsbuild": "dotnet fable ./src --noCache -s --run vite build ./src --mode production --config ./vite.config.js",
         "build": "dotnet fable src -s --run vite build",
         "preview": "vite preview",
-        "format": "dotnet fantomas -i src"
+        "format": "dotnet fantomas . -i src"
     },
     "devDependencies": {
         "@vitejs/plugin-react": "^3.0.1",

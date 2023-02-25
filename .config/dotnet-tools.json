@@ -8,12 +8,6 @@
                 "fable"
             ]
         },
-        "paket": {
-            "version": "7.2.0",
-            "commands": [
-                "paket"
-            ]
-        },
         "fantomas": {
             "version": "5.1.5",
             "commands": [
