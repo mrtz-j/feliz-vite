@@ -1,0 +1,33 @@
+<Project>
+  <!-- Make F# support Central Package Management -->
+  <PropertyGroup>
+    <DisableImplicitSystemValueTupleReference>true</DisableImplicitSystemValueTupleReference>
+    <DisableImplicitFSharpCoreReference>true</DisableImplicitFSharpCoreReference>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- <DebugType Condition=" '$(DebugType)' == '' ">embedded</DebugType> -->
+    <!-- <DebugType>embedded</DebugType> -->
+    <!-- <Deterministic>true</Deterministic> -->
+    <!-- <NetCoreTargetingPackRoot>[UNDEFINED]</NetCoreTargetingPackRoot> -->
+
+    <!-- Warnings and Errors -->
+    <!--
+        FS0025: Incomplete pattern matches on this expression.
+        FS1182: Unused variables
+        FS1178: Does not support structural equality
+        FS3390: Malformed XML doc comment
+    -->
+    <!-- <WarnOn>FS3388,FS3559</WarnOn> -->
+    <!-- <WarnOn>1182;3390;1178;$(WarnOn)</WarnOn> -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors>FS0025</WarningsAsErrors>
+    <NoWarn>NU1603;MSB3277</NoWarn>
+    <!-- Restore with Lockfiles -->
+    <!-- https://www.gresearch.co.uk/blog/article/improve-nuget-restores-with-static-graph-evaluation/ -->
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    <!-- Performance -->
+    <OtherFlags>$(OtherFlags) --test:GraphBasedChecking --test:ParallelOptimization --test:ParallelIlxGen</OtherFlags>
+  </PropertyGroup>
+</Project>

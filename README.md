@@ -1,2 +1,3 @@
 # feliz-vite
-A Github F# Feliz Template with Vite
+
+An F# Feliz Template with Vite
