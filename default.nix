@@ -8,10 +8,12 @@
   },
 }:
 let
+  dotnet-sdk = pkgs.dotnetCorePackages.sdk_10_0;
   fable = pkgs.buildDotnetGlobalTool (finalAttrs: {
+    inherit dotnet-sdk;
     pname = "fable";
-    version = "5.0.0-alpha.15 ";
-    nugetHash = "sha256-8NeMcGqwZW5z/YUbNXHIsCBrPQ92cp/Uki/pIpKLMVo=";
+    version = "5.0.0-alpha.21";
+    nugetHash = "sha256-p/DE1nwcRmDtBWyDB4zPz3KH8gPOM8zis0+8bzwf8Z4=";
   });
 in
 {
@@ -25,7 +27,7 @@ in
       fable
 
       # fsharp
-      dotnetCorePackages.sdk_10_0
+      dotnet-sdk
       fantomas
       fsautocomplete
     ];
